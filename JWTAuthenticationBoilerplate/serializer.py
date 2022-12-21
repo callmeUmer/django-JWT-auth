@@ -5,6 +5,8 @@ User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
 
+    groups = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = User
-        exclude = ['password', 'last_login']
+        exclude = ['password', 'last_login', "user_permissions"]
